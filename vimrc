@@ -80,13 +80,14 @@ Plugin 'Shougo/neocomplete.vim'
 Plugin 'alvan/vim-closetag'
 " add this line to your .vimrc file
 Plugin 'mattn/emmet-vim'
+Plugin 'heavenshell/vim-jsdoc'
 
 "Python 
 Plugin 'vim-scripts/indentpython.vim'
 let python_highlight_all=1
 syntax on
 Plugin 'davidhalter/jedi-vim'
-Plugin 'klen/python-mode'
+Plugin 'python-mode/python-mode'
 
 
 "laravel 
@@ -713,6 +714,12 @@ map <Leader><Leader>k <Plug>(easymotion-k)
 " ]M            Jump on next class or method (normal, visual, operator modes)
 "              跳转到前一个/后一个类或方法
 let g:pymode_rope = 1
+let g:pymode_python = 'python3'
+"开启警告
+let g:pymode_warnings = 0
+"保存文件时自动删除无用空格
+let g:pymode_trim_whitespaces = 1
+let g:pymode_options = 1
 
 " Documentation 显示文档
 let g:pymode_doc = 1
@@ -739,6 +746,17 @@ let g:pymode_syntax_space_errors = g:pymode_syntax_all
 
 " Don't autofold code 禁用自动代码折叠
 let g:pymode_folding = 0
+
+"python代码缩进PEP8风格
+au BufNewFile,BufRead *.py,*.pyw set tabstop=4
+au BufNewFile,BufRead *.py,*.pyw set softtabstop=4
+au BufNewFile,BufRead *.py,*.pyw set shiftwidth=4
+au BufNewFile,BufRead *.py,*.pyw set textwidth=79
+au BufNewFile,BufRead *.py,*.pyw set expandtab
+au BufNewFile,BufRead *.py,*.pyw set autoindent
+au BufNewFile,BufRead *.py,*.pyw set fileformat=unix
+
+
 
 """"""""""""""""""""""""""""""""""""""""""""""
 " auto
@@ -810,3 +828,6 @@ autocmd BufNewFile *.py exec ":call AutoSetPyFileHead()"
 autocmd BufNewFile *.c,*.cpp,*.h,*.java exec ":call AutoSetFileHead()"
 
 
+""""""""""""""""""""""""""""""
+" php 
+""""""""""""""""""""""""""""""
